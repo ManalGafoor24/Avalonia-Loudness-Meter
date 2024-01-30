@@ -1,0 +1,82 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:ogh_mockup.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+			 Width="800" Height="450"
+             x:Class="ogh_mockup.Views.MainView"
+             x:DataType="vm:MainViewModel">
+  <Design.DataContext>
+    <!-- This only sets the DataContext for the previewer in an IDE,
+         to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+    <vm:MainViewModel />
+  </Design.DataContext>
+
+	<DockPanel Background="#151515">
+		<Grid ColumnDefinitions="* Auto" VerticalAlignment="Top" Background="#151515">
+			<StackPanel DockPanel.Dock="Left"
+								Grid.Column="0" Margin="0 10"
+								HorizontalAlignment="Left"
+								VerticalAlignment="Top"
+								Height="450">
+				<StackPanel.Styles>
+					<Style Selector="Button">
+						<Setter Property="Background" Value="#151515"></Setter>
+						<Setter Property="Margin" Value="5"></Setter>
+					</Style>
+					
+					<Style Selector="Button:pointerover /template/ ContentPresenter">
+						<Setter Property="RenderTransform" Value="scale(1.2)"></Setter>
+					</Style>
+
+					<Style Selector="Button Image">
+						<Setter Property="Height" Value="20"></Setter>
+						<Setter Property="Width" Value="15"></Setter>
+					</Style>
+					
+					<!--<Style Selector="Border /template/ ContentPresenter">
+					<Setter Property="Transitions">
+						<Transitions>
+							<TransformOperationsTransition Property="RenderTransform" Duration="0:0:1"></TransformOperationsTransition>
+						</Transitions>
+					</Setter>
+				</Style>
+				<Style Selector="Border:pointerover /template/ ContentPresenter">
+					<Setter Property="RenderTransform" Value="rotate(45deg)"></Setter>
+				</Style>-->
+				</StackPanel.Styles>
+
+				<Button>
+					<Image Source="{SvgImage /Assets/Omen.svg}"></Image>
+				</Button>
+				<Button>
+					<Image Source="{SvgImage /Assets/globe.svg}"></Image>
+				</Button>
+				<Button>
+					<Image Source="{SvgImage /Assets/sliders.svg}"></Image>
+				</Button>
+				<Button>
+					<Image Source="{SvgImage /Assets/game-controller.svg}"></Image>
+				</Button>
+				<Button>
+					<Image Source="{SvgImage /Assets/users.svg}"></Image>
+				</Button>
+			</StackPanel>
+
+			<Rectangle Fill="Red" Height="25" Width="2" Grid.Column="1" Grid.Row="0"
+					RenderTransform="translateY(-203px)">
+				<Rectangle.OpacityMask>
+					<LinearGradientBrush StartPoint="0%,0%" EndPoint="100%,100%">
+						<LinearGradientBrush.GradientStops>
+							<GradientStop Offset="0" Color="#F90"/>
+							<GradientStop Offset="1" Color="#FF003D"/>
+						</LinearGradientBrush.GradientStops>
+					</LinearGradientBrush>
+				</Rectangle.OpacityMask>
+			</Rectangle>
+		</Grid>
+		
+		<Image Source="{SvgImage /Assets/Marvels.svg}"></Image>
+	</DockPanel>
+</UserControl>
